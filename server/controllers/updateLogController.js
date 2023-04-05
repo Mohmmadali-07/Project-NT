@@ -1,21 +1,17 @@
 const Crud = require("../models/updateLogmodel");
 
 // Display All CRUD Data
-const crud_index = (req, res) => {
-	const id = req.query.id
-	Crud.find(function (err, cruds) {
-		let result =[]
-		for (let i = 0; i < cruds.length; i++) {
-			const currentObject = cruds[i];
-			const reqid = currentObject.result.id;
-			if (reqid == id) {
-			  result.push(currentObject);
-			} 
-		}
-		console.log(result);
-		res.json(result)
-	});
-};
+const crud_index = async (req, res) => {
+	const id = req.query.id;
+	try {
+	  const result = await Crud.find({ "result.id": id });
+	  res.json(result);
+	} catch (error) {
+	  console.log(error);
+	  res.status(500).json({ error: "Internal Server Error" });
+	}
+  };
+  
 
 // Create New CRUD
 const crud_create_post = (req, res) => {

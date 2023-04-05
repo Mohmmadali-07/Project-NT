@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import Expense from '../Components/Admin/Expense';
 
 function Home() {
-  const [data, setData] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
@@ -20,7 +19,6 @@ function Home() {
               'Authorization': `Bearer ${token}`
             }
           });
-          setData(response.data);
           setIsAuthenticated(true);
         } catch (error) {
           console.log(error);

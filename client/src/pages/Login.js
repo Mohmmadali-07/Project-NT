@@ -12,7 +12,6 @@ export default function Login(props) {
   const authenticate = async (e) => {
     e.preventDefault();
     try {
-      console.log(email, password);
       const res = await axios.post("http://localhost:5000/authenticate", {
         email,
         password,

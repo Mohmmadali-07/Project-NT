@@ -5,8 +5,6 @@ import {
   AcademicCapIcon,
   UserIcon,
   BanknotesIcon,
-  BookOpenIcon,
-  PlusIcon,
   UserCircleIcon,
   PlusCircleIcon,
 } from "@heroicons/react/24/outline";
